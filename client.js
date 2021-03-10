@@ -3,8 +3,8 @@ const clientName = 'UMR';
 
 const connect = function() {
   const conn = net.createConnection({ 
-    host: '10.0.2.15',
-    port: 50541
+    host: '135.23.222.131',
+    port: 50542
   });
   conn.setEncoding('utf8'); 
   
@@ -12,6 +12,22 @@ const connect = function() {
     conn.write(`Name: ${clientName}`);
     console.log(`Successfully connected to game server`);
   });
+
+  conn.on('connect', () => {
+    setInterval(() => conn.write("Move: down"), 500);
+  });
+
+  // conn.on('connect', () => {
+  //   setTimeout(() => conn.write("Move: left"), 100);
+  // });
+
+  // conn.on('connect', () => {
+  //   setTimeout(() => conn.write("Move: down"), 1000);
+  // });
+
+  // conn.on('connect', () => {
+  //   setTimeout(() => conn.write("Move: right"), 2000);
+  // });
 
   conn.on('close', () => { 
     console.log('Client closed'); 
