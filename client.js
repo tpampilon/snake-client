@@ -13,27 +13,11 @@ const connect = function() {
     console.log(`Successfully connected to game server`);
   });
 
-  conn.on('connect', () => {
-    setInterval(() => conn.write("Move: down"), 500);
-  });
-
-  // conn.on('connect', () => {
-  //   setTimeout(() => conn.write("Move: left"), 100);
-  // });
-
-  // conn.on('connect', () => {
-  //   setTimeout(() => conn.write("Move: down"), 1000);
-  // });
-
-  // conn.on('connect', () => {
-  //   setTimeout(() => conn.write("Move: right"), 2000);
-  // });
-
   conn.on('close', () => { 
     console.log('Client closed'); 
   });  
   
-  conn.setTimeout(5000);
+  conn.setTimeout(3000);
   conn.on('timeout', () => {
     console.log('you ded cuz you idled');
     conn.end();
