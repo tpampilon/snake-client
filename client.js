@@ -14,10 +14,10 @@ const connect = function() {
   });
 
   conn.on('close', () => { 
-    console.log('Client closed'); 
+    console.log('Client Server Closed: Press Ctrl+C'); 
   });  
   
-  conn.setTimeout(3000);
+  conn.setTimeout(5000);
   conn.on('timeout', () => {
     console.log('you ded cuz you idled');
     conn.end();
